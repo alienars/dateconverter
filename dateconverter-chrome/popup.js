@@ -257,28 +257,11 @@ document.addEventListener("DOMContentLoaded", function () {
     $("#current-time-inputs").toggleClass("hide");
   });
 
-  // var convertTimeBtn = document.getElementById("convert-time-btn");
-  // convertTimeBtn.addEventListener("click", function () {
-  //   if (manualTimeInput.checked) {
-  //     console.log($("#hour-conv-input").val());
-  //     console.log($("#minute-conv-input").val());
-  //     console.log($("#second-conv-input").val());
-      
-  //   } else {
-      
-  //     console.log($("#curr-hour-conv-input").val());
-  //     console.log($("#curr-minute-conv-input").val());
-  //     console.log($("#curr-second-conv-input").val());
-  //   }
-  // });
-
 
   const wrapper = document.querySelector(".wrapper"),
     selectBtn = wrapper.querySelector(".select-btn"),
     searchInp = wrapper.querySelector("input"),
     options = wrapper.querySelector(".options");
-
-  
 
   let countries = {
     Los_Angeles: "-7",
@@ -344,43 +327,38 @@ document.addEventListener("DOMContentLoaded", function () {
   const countriesArr = [];
 
   for (const key in countries) {
-    // if (key === "ddd") {
+
     countriesArr.push(key);
-    // }
+
   }
 
-
   function addCountry(selectedCountry) {
-    console.log(countries);
     options.innerHTML = "";
     for (const country in countries) {
       let isSelected = country == selectedCountry ? "selected" : "";
       let li = `<li class="${isSelected}" value="${countries[country]}">${country}</li>`;
       options.insertAdjacentHTML("beforeend", li);
-    };
+    }
   }
   addCountry();
 
   function updateName(selectedLi) {
     searchInp.value = "";
-    // addCountry(selectedLi.innerText);
     wrapper.classList.remove("active");
-    selectBtn.firstElementChild.innerText = selectedLi.text();  
-     $(".select-btn").attr("value", selectedLi.attr("value"));
+    selectBtn.firstElementChild.innerText = selectedLi.text();
+    $(".select-btn").attr("value", selectedLi.attr("value"));
   }
-function turnOnEventClickCity() {
-  $("ul.options li").on("click", function () {
-    var clickedElement = $(this);
-    updateName(clickedElement);
-  });
-}
+  function turnOnEventClickCity() {
+    $("ul.options li").on("click", function () {
+      var clickedElement = $(this);
+      updateName(clickedElement);
+    });
+  }
   searchInp.addEventListener("keyup", () => {
-    // console.log("countriesArr : ", countriesArr);
     let arr = [];
     let searchWord = searchInp.value.toLowerCase();
     arr = countriesArr
       .filter((data) => {
-        // debugger
         return data.toLowerCase().startsWith(searchWord);
       })
       .map((data) => {
@@ -395,7 +373,6 @@ function turnOnEventClickCity() {
   selectBtn.addEventListener("click", () => wrapper.classList.toggle("active"));
 
   turnOnEventClickCity();
-
 
   function convertTimeToTimeZone(hours, minutes, seconds, timeZone) {
     // Create a new Date object with the current time
@@ -420,7 +397,6 @@ function turnOnEventClickCity() {
     return { hours: convertedHours, minutes: convertedMinutes, seconds: convertedSeconds };
   }
 
-
   $("#convert-time-btn").on("click", function () {
     let currHour;
     let currMinute;
@@ -429,33 +405,18 @@ function turnOnEventClickCity() {
       currHour = $("#curr-hour-conv-input").val();
       currMinute = $("#curr-minute-conv-input").val();
       currSecond = $("#curr-second-conv-input").val();
-    }else{
+    } else {
       currHour = $("#hour-conv-input").val();
       currMinute = $("#minute-conv-input").val();
       currSecond = $("#second-conv-input").val();
     }
-    
+
     let currTz = $(".select-btn").attr("value");
     const convertedTime = convertTimeToTimeZone(currHour, currMinute, currSecond, currTz);
 
-    // console.log(convertedTime.hours+":"+convertedTime.minutes+":"+convertedTime.seconds); // Converted hours
-
     $("#converted-time").val(convertedTime.hours + ":" + convertedTime.minutes + ":" + convertedTime.seconds);
 
-    // console.log(convertedTime.minutes); // Converted minutes
-    // console.log(convertedTime.seconds); // Converted seconds
   });
-
-
-
-
-
-
-
-
-
-
-
 
   refresh.addEventListener("click", function () {
     chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
@@ -628,10 +589,8 @@ function turnOnEventClickCity() {
     $("#date-format2-en").toggleClass("hide");
   });
 
-  
-
   langSourceFa = {
-    versionTitle: "4.0 - DAME",
+    versionTitle: "4.5 - DAME",
     menu: ["هوشمند", "تقویم", "زمان", "مبدل", "تنظیمات"],
     smart: {
       info: "اگر در تب فعال مرورگر تاریخ هایی وجود داشته باشه، میتونی همه رو با یه کلیک تبدیل کنی!",
@@ -647,6 +606,8 @@ function turnOnEventClickCity() {
       citySelect: ["انتخاب شهر", "جستجو", "هیچ شهری پیدا نشد"],
       timeConvertBtn: "تبدیل",
       manualSwitch: "انتخاب دستی",
+      accordionTitleDate: "تبدیل تاریخ",
+      accordionTitleTime: "تبدیل ساعت",
     },
     setting: {
       primary: "رنگ اصلی",
@@ -668,7 +629,7 @@ function turnOnEventClickCity() {
     },
   };
   langSourceEn = {
-    versionTitle: "DAME - 4.0",
+    versionTitle: "DAME - 4.5",
     menu: ["Smart", "Calendar", "Time", "Convert", "Setting"],
     smart: {
       info: "If there are dates in the active tab of the browser, you can convert them all with one click!",
@@ -684,6 +645,8 @@ function turnOnEventClickCity() {
       citySelect: ["Choose city", "Search", "No cities found"],
       timeConvertBtn: "Convert",
       manualSwitch: "manual select",
+      accordionTitleDate: "Convert Date",
+      accordionTitleTime: "Convert Time",
     },
     setting: {
       primary: "Primary",
@@ -737,7 +700,8 @@ function turnOnEventClickCity() {
     $("#convert-time-btn").text(langSourceFa.convert.timeConvertBtn);
     $("#convert-manual-time").text(langSourceFa.convert.manualSwitch);
     $("#time-convert-select-city-search").attr("placeholder", langSourceFa.convert.citySelect[1]);
-
+    $("#convert-date-title").text(langSourceFa.convert.accordionTitleDate);
+    $("#convert-time-title").text(langSourceFa.convert.accordionTitleTime);
 
     $("#setting-primary-txt").text(langSourceFa.setting.primary);
     $("#setting-back-txt").text(langSourceFa.setting.background);
@@ -797,7 +761,8 @@ function turnOnEventClickCity() {
     $("#convert-time-btn").text(langSourceEn.convert.timeConvertBtn);
     $("#convert-manual-time").text(langSourceEn.convert.manualSwitch);
     $("#time-convert-select-city-search").attr("placeholder", langSourceEn.convert.citySelect[1]);
-
+    $("#convert-date-title").text(langSourceEn.convert.accordionTitleDate);
+    $("#convert-time-title").text(langSourceEn.convert.accordionTitleTime);
 
     $("#setting-primary-txt").text(langSourceEn.setting.primary);
     $("#setting-back-txt").text(langSourceEn.setting.background);
@@ -843,7 +808,7 @@ function turnOnEventClickCity() {
 
   langChanger();
 
-  function clockDefault(){
+  function clockDefault() {
     // time
 
     const allLine = document.querySelectorAll(".line");
@@ -896,11 +861,9 @@ function turnOnEventClickCity() {
       minutes.style.transform = `rotateZ(${minRot}deg)`;
       hours.style.transform = `rotateZ(${hrRot}deg)`;
     }
-    
   }
 
-
-  function digitalClock(){
+  function digitalClock() {
     // digital watch
 
     var time = [, , ,];
@@ -925,19 +888,19 @@ function turnOnEventClickCity() {
         time[1] = modtime(fecha.getMinutes());
         time[2] = modtime(fecha.getSeconds());
       }
-      // console.log($("#curr-hour-conv-input"));
-      $("#curr-hour-conv-input").val(time[0]);
-        $("#curr-minute-conv-input").val(time[1]);
-        $("#curr-second-conv-input").val(time[2]);
 
-        reloj.innerHTML =
-          '<span class="square" id="h">' +
-          time[0] +
-          '</span><span class="point">:</span><span class="square" id="m">' +
-          time[1] +
-          '</span><span class="point">:</span><span class="square" id="s">' +
-          time[2] +
-          "</span>";
+      $("#curr-hour-conv-input").val(time[0]);
+      $("#curr-minute-conv-input").val(time[1]);
+      $("#curr-second-conv-input").val(time[2]);
+
+      reloj.innerHTML =
+        '<span class="square" id="h">' +
+        time[0] +
+        '</span><span class="point">:</span><span class="square" id="m">' +
+        time[1] +
+        '</span><span class="point">:</span><span class="square" id="s">' +
+        time[2] +
+        "</span>";
     }
 
     function modtime(hora) {
@@ -945,7 +908,7 @@ function turnOnEventClickCity() {
     }
   }
 
-  function clockCircleDots(){
+  function clockCircleDots() {
     // Utilities
     function rad(deg) {
       return (deg * Math.PI) / 180;
@@ -1029,9 +992,7 @@ function turnOnEventClickCity() {
         s = now.getSeconds();
       }
 
-      // var h = now.getHours();
-      // var m = now.getMinutes();
-      // var s = now.getSeconds();
+
       var ms = now.getMilliseconds();
 
       // Progress
@@ -1066,9 +1027,9 @@ function turnOnEventClickCity() {
     draw();
   }
 
-  function clockSimple(){
+  function clockSimple() {
     var currentSec = getSecondsToday();
-    // console.log("currentSec : ", currentSec);
+
     var seconds;
     var minutes;
     var hours;
@@ -1084,30 +1045,21 @@ function turnOnEventClickCity() {
       hours = parseInt(nowTz[0]) * 43200;
       minutes = parseInt(nowTz[1]) * 3600;
       seconds = parseInt(nowTz[2]) * 60;
-      // console.log(seconds + "if" + minutes + "if" + hours);
+      
     } else {
-      // var seconds = (currentSec / 60) % 1;
-      // var minutes = (currentSec / 3600) % 1;
-      // var hours = (currentSec / 43200) % 1;
 
-      // setTime(60 * seconds, "second");
-      // setTime(3600 * minutes, "minute");
-      // setTime(43200 * hours, "hour");
     }
 
-    // console.log("currentSec : ",currentSec);
 
     var seconds = (currentSec / 60) % 1;
     var minutes = (currentSec / 3600) % 1;
     var hours = (currentSec / 43200) % 1;
 
-    // console.log(seconds + "ss" + minutes + "ss" + hours);
 
     var seconds = seconds * 60;
     var minutes = minutes * 3600;
     var hours = hours * 43200;
 
-    // console.log(seconds + "ss" + minutes + "ss" + hours);
 
     setTime(seconds, "second");
     setTime(minutes, "minute");
@@ -1119,16 +1071,13 @@ function turnOnEventClickCity() {
 
     function getSecondsToday() {
       let now = new Date();
-
       let today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
-
       let diff = now - today;
       return Math.round(diff / 1000);
     }
   }
 
- 
-
+  // change clock theme
   function clockThemeChanger() {
     if (localStorage.getItem("clock-theme") === "circle-dots") {
       if (!$("#clock-default").hasClass("hide")) {
@@ -1146,36 +1095,33 @@ function turnOnEventClickCity() {
       if ($("#clock-default").hasClass("hide")) {
         $("#clock-default").toggleClass("hide");
       }
-      // $("#clock-default").toggleClass("hide");
       clockDefault();
       digitalClock();
     } else {
       $("#clock-default").toggleClass("hide");
       clockDefault();
-      // $("#clock-circle-dots").toggleClass("hide");
-      // clockCircleDots();
-      // $("#clock-simple").toggleClass("hide");
-      // clockSimple();
-
-      // $("#clock-gradient").toggleClass("hide");
-      // clockGradient();
-
       digitalClock();
     }
   }
 
   clockThemeChanger();
 
-  $(".forex-tz-btn").click(function () {
-    // $(".form-wrap").css("width", "700px");
-    $("body").css("width", "700px");
-    $("body").css("height", "600px");
+  // redirect forex @webapp
+  // $(".forex-tz-btn").click(function () {
+  //   window.location.href = "forexwa.html";
+  // });
+
+  // open forex ext
+    $(".forex-tz-btn").click(function () {
+      $("body").css("width", "700px");
+      $("body").css("height", "600px");
+    });
+
+  $("#offcanvasForexClose").click(function () {
+    $("body").css("width", "auto"); 
+    $("body").css("height", "auto");
   });
-$("#offcanvasForexClose").click(function () {
-  // $(".form-wrap").css("width", "375px");
-  $("body").css("width", "auto");
-  $("body").css("height", "auto");
-});
+
   $(".card-footer").click(function () {
     $("body").css("height", "470px");
   });
@@ -1187,31 +1133,5 @@ $("#offcanvasForexClose").click(function () {
     $(this).find(".about-txt").toggleClass("hide");
     $(this).find(".text-muted").toggleClass("hide");
   });
-
-
-
-
-
-
-  // const mySwitch = document.getElementById("mySwitch");
-  // mySwitch.addEventListener("change", updateInput);
-
-  // // Function to update the input value based on switch state
-  // function updateInput(event) {
-  //   const output = document.getElementById("output");
-  //   const switchState = event.target.checked;
-
-  //   // Assign specific values based on switch state
-  //   const value1 = switchState ? "Value A" : "Value X";
-  //   const value2 = switchState ? "Value B" : "Value Y";
-  //   const value3 = switchState ? "Value C" : "Value Z";
-
-  //   // Update the input value
-  //   output.value = value1 + ", " + value2 + ", " + value3;
-  // }
-
-
-
-
 
 });

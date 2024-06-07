@@ -1,3 +1,4 @@
+// date converter core function
 !(function (t, n) {
   "object" == typeof exports && "undefined" != typeof module
     ? (module.exports = n())
@@ -99,7 +100,7 @@
 
 
 
-
+// english numbers to persian numbers converter
 String.prototype.getBaseConversionNumber = function (label) {
   let faDigits = ["۱", "۲", "۳", "۴", "۵", "۶", "۷", "۸", "۹", "۰"];
   let enDigits = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
@@ -154,22 +155,18 @@ String.prototype.convertDigits = function (to) {
   return str;
 };
 
-console.log("agent loaded");
+
 
 document.addEventListener("DOMContentLoaded", function () {
   let pageHTML = document.documentElement.innerHTML;
   localStorage.setItem("storedHTML", pageHTML);
-  // console.log("pageHTML : ", pageHTML);
 });
 
 
-
+// Receive command from extensions
 let chengeDateCounter = 0
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
-  // console.log("Received message.auto from popup:", message.auto);
   if (message.auto === "true"){
-    // dateChanger();
-    // chengeDateCounter++;
 
   }else if (message.auto === "false") {
 
@@ -177,18 +174,9 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     dateChanger(message.numberFa);
     chengeDateCounter++;
   } else if (message.action === "restore" && chengeDateCounter === 1) {
-    // document.documentElement.innerHTML = localStorage.getItem("storedHTML");
     window.location.reload();
     chengeDateCounter--;
   }
-
-
-
-
-    // Process the received data here
-
-    // Send a response back if needed
-    // sendResponse("Data received successfully");
 });
 
 
@@ -252,52 +240,6 @@ function dateChanger(numberFa) {
 }
 
 
-
-  
-  // Find and process all calendar dates
-  // for (let pattern of patterns) {
-  //   let elements = document.getElementsByTagName("*");
-  //   for (let i = 0; i < elements.length; i++) {
-  //     let element = elements[i];
-  //     for (let j = 0; j < element.childNodes.length; j++) {
-  //       let node = element.childNodes[j];
-  //       if (node.nodeType === 3 && node.parentNode.nodeName !== "INPUT" && node.parentNode.nodeName !== "TEXTAREA") {
-  //         let text = node.nodeValue;
-  //         let matches = text.match(pattern);
-  //         if (matches !== null) {
-  //           let matches = text.matchAll(pattern);
-  //           for (let match of matches) {
-  //             month = match[2];
-  //             if (match[1].length == 4) {
-  //               year = match[1];
-  //               day = match[3];
-  //             }
-  //             if (match[3].length == 4) {
-  //               year = match[3];
-  //               day = match[1];
-  //             }
-  //             let convertedDate = farvardin.gregorianToSolar(parseInt(year), parseInt(month), parseInt(day), "string");
-  //             if(numberFa === true){
-  //               text = text.replace(match[0], convertedDate.toString().convertDigits("fa"));
-  //             }else{
-  //               text = text.replace(match[0], convertedDate);
-  //             }
-  //           }
-  //           node.nodeValue = text;
-  //         }
-  //       }
-  //     }
-  //   }
-  // }
-
-
-
-
-
-
-
-
-
 function numberChanger(){
   function convertNumbersToFarsi(str) {
     var regex = /\d+(?:\.\d+)?/g;
@@ -354,14 +296,10 @@ function numberChanger(){
         let text = node.nodeValue;
         var regex = /(.{0,8})(\d+(?:\.\d+)?)(.{0,8})/g;
         var matches = text.matchAll(regex);
-        // console.log("text : ", text);
         for (var match of matches) {
           var numberWithContext = match[1] + match[2] + match[3];
-          // console.log("numberWithContext : ", numberWithContext + " >> " + checkForEnglishLetter(numberWithContext));
           if (checkForEnglishLetter(numberWithContext) === 0) {
-            // console.log("changed : ", convertNumbersToFarsi(numberWithContext));
             text = replaceString(text, numberWithContext, convertNumbersToFarsi(numberWithContext));
-            // console.log("text updated : ", text);
             node.nodeValue = text;
           }
         }

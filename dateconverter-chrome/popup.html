@@ -4,7 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *"> -->
     <link rel="stylesheet" href="assets/fonts/yekan-bakh/font.css" />
     <link rel="stylesheet" href="assets/css/bootstrap.rtl.min.css" />
     <link rel="stylesheet" href="assets/css/styles.css" />
@@ -13,78 +12,55 @@
     <script src="assets/js/jquery.js"></script>
     <script src="assets/js/jalali-moment.browser.js"></script>
   </head>
-  <body id="body" backcolor="white" primarycolor="blue">
-
-    <div class="offcanvas offcanvas-bottom" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasForex" aria-labelledby="offcanvasForexLabel">
-      <!-- <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="about-title">Offcanvas</h5>
-        <button
-          type="button"
-          class="text-reset"
-          id="offcanvasAboutClose"
-          data-bs-dismiss="offcanvas"
-          aria-label="Close"
-        >
-          <svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512">
-            <path
-              fill="none"
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="32"
-              d="M368 368L144 144M368 144L144 368"
-            />
-          </svg>
-        </button>
-      </div> -->
+  <body id="body" backcolor="white" primarycolor="blue" webapp="false">
+    <!-- Forex Modal -->
+    <div
+      class="offcanvas offcanvas-bottom"
+      data-bs-scroll="true"
+      data-bs-backdrop="true"
+      tabindex="-1"
+      id="offcanvasForex"
+      aria-labelledby="offcanvasForexLabel"
+    >
       <div class="offcanvas-body">
-        <!-- <button
-          type="button"
-          class="text-reset"
-          id="offcanvasForexClose"
-          data-bs-dismiss="offcanvas"
-          aria-label="Close"
-        >
-          <svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512">
-            <path
-              fill="none"
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="32"
-              d="M368 368L144 144M368 144L144 368"
-            />
-          </svg>
-        </button> -->
         <div id="containerForexClose">
-          <button class="btn btn-primary radius-all forex-tz-btn" data-bs-dismiss="offcanvas"
-          aria-label="Close" id="offcanvasForexClose" type="button" id="ss">
-                  
-                  <svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512">
-            <path
-              fill="none"
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="32"
-              d="M368 368L144 144M368 144L144 368"
-            />
-          </svg>
-                  <span id="forex-back-txt" data-bs-toggle="offcanvas"
+          <button
+            class="btn btn-primary radius-all forex-tz-btn"
+            data-bs-dismiss="offcanvas"
+            aria-label="Close"
+            id="offcanvasForexClose"
+            type="button"
+            id="ss"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512">
+              <path
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="32"
+                d="M368 368L144 144M368 144L144 368"
+              />
+            </svg>
+            <span
+              id="forex-back-txt"
+              data-bs-toggle="offcanvas"
               href="#offcanvasForex"
               role="button"
-              aria-controls="offcanvasForex"></span>
-              </button>
+              aria-controls="offcanvasForex"
+            ></span>
+          </button>
         </div>
         <div id="forex-time-zone">
-           <iframe src="forex.html"></iframe>
+          <iframe src="forex.html"></iframe>
         </div>
       </div>
     </div>
-
+    <!-- About Modal -->
     <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasAbout" aria-labelledby="offcanvasAboutLabel">
+      <!-- About Modal Head -->
       <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="about-title">Offcanvas</h5>
+        <h5 class="offcanvas-title" id="about-title"></h5>
         <button
           type="button"
           class="text-reset"
@@ -104,8 +80,10 @@
           </svg>
         </button>
       </div>
+      <!-- About Modal Content -->
       <div class="offcanvas-body">
         <div class="about" id="about">
+          <!-- About Modal Header -->
           <div class="header">
             <div class="logoback">
               <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100.821" viewBox="0 0 100 100.821">
@@ -192,6 +170,7 @@
               </svg>
             </div>
           </div>
+          <!-- About Modal Body -->
           <div class="body">
             <table class="table table-borderless">
               <tbody>
@@ -244,8 +223,10 @@
               </tbody>
             </table>
           </div>
+          <!-- About Modal Footer -->
           <div class="footer">
             <div class="links">
+              <!-- About Modal Footer Github -->
               <button class="btn btn-primary radius-all about-footer-btn" type="button" id="back-to-home">
                 <div class="about-footer-icon">
                   <svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512">
@@ -255,7 +236,7 @@
                   </svg>
                 </div>
               </button>
-
+              <!-- About Modal Footer Website -->
               <button class="btn btn-primary radius-all about-footer-btn" type="button" id="back-to-home">
                 <div class="about-footer-icon">
                   <svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512">
@@ -268,7 +249,7 @@
                   </svg>
                 </div>
               </button>
-
+              <!-- About Modal Footer Chrome -->
               <button class="btn btn-primary radius-all about-footer-btn" type="button" id="back-to-home">
                 <div class="about-footer-icon">
                   <svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512">
@@ -285,16 +266,18 @@
                   </svg>
                 </div>
               </button>
-            </div>
 
+            </div>
             <p id="about-copyright-txt"></p>
           </div>
         </div>
       </div>
     </div>
-
+    
     <div class="form-wrap">
+      <!-- Menu Buttons -->
       <div class="tabs">
+        <!-- Menu Buttons Smart -->
         <h6 class="signup-tab">
           <a href="#auto-tab-content">
             <div class="menu-icon">
@@ -327,6 +310,7 @@
             <div class="menu-title" id="menu-title-smart"></div>
           </a>
         </h6>
+        <!-- Menu Buttons Date -->
         <h6 class="signup-tab">
           <a href="#date-tab-content" id="date-tab-content-btn">
             <div class="menu-icon">
@@ -355,6 +339,7 @@
             <div class="menu-title" id="menu-title-date"></div>
           </a>
         </h6>
+        <!-- Menu Buttons Time -->
         <h6 class="signup-tab">
           <a class="active" href="#time-tab-content">
             <div class="menu-icon">
@@ -379,6 +364,7 @@
             <div class="menu-title" id="menu-title-time"></div>
           </a>
         </h6>
+        <!-- Menu Buttons Convert -->
         <h6 class="login-tab">
           <a href="#convert-tab-content">
             <div class="menu-icon">
@@ -396,7 +382,7 @@
             <div class="menu-title" id="menu-title-convert"></div>
           </a>
         </h6>
-
+        <!-- Menu Buttons Setting -->
         <h6 class="login-tab">
           <a href="#setting-tab-content">
             <div class="menu-icon">
@@ -416,9 +402,10 @@
           </a>
         </h6>
       </div>
-      <!--.tabs-->
-
+      <!-- .Menu Buttons -->
+      <!-- Tabs Contents -->
       <div class="tabs-content">
+        <!-- Tabs Contents Smart -->
         <div id="auto-tab-content">
           <div class="card text-center">
             <div class="card-body">
@@ -480,7 +467,7 @@
             </div>
           </div>
         </div>
-
+        <!-- Tabs Contents Date -->
         <div id="date-tab-content">
           <div class="card text-center">
             <div class="card-body p-0">
@@ -533,7 +520,7 @@
             </div>
           </div>
         </div>
-
+        <!-- Tabs Contents Time -->
         <div id="time-tab-content" class="active">
           <div class="card text-center">
             <div class="card-body">
@@ -603,102 +590,110 @@
                   <div class="min"></div>
                   <div class="hr"></div>
                 </div>
-
               </div>
-                              
+
               <div id="clock-circle-dots" class="hide">
                 <div class="clock-circle-dots-body sol">
-                  <svg id="clock" viewBox="0 0 512 512" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                  <svg
+                    id="clock"
+                    viewBox="0 0 512 512"
+                    version="1.1"
+                    xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                  >
                     <style>
-                      text { font-family: 'Helvetica Bold', 'Helvetica', sans-serif; font-weight: bold; }
+                      text {
+                        font-family: "Helvetica Bold", "Helvetica", sans-serif;
+                        font-weight: bold;
+                      }
                     </style>
                   </svg>
                 </div>
               </div>
               <div id="clock-simple" class="hide">
-                
                 <div class="clock-simple">
                   <div class="clock__second"></div>
                   <div class="clock__minute"></div>
-                    <div class="clock__hour"></div>
+                  <div class="clock__hour"></div>
                   <div class="clock__axis"></div>
-                    <section class="clock__indicator"></section>
-                    <section class="clock__indicator"></section>
-                    <section class="clock__indicator"></section>
-                    <section class="clock__indicator"></section>
-                    <section class="clock__indicator"></section>
-                    <section class="clock__indicator"></section>
-                    <section class="clock__indicator"></section>
-                    <section class="clock__indicator"></section>
-                    <section class="clock__indicator"></section>
-                    <section class="clock__indicator"></section>
-                    <section class="clock__indicator"></section>
-                    <section class="clock__indicator"></section>
-                    <section class="clock__indicator"></section>
-                    <section class="clock__indicator"></section>
-                    <section class="clock__indicator"></section>
-                    <section class="clock__indicator"></section>
-                    <section class="clock__indicator"></section>
-                    <section class="clock__indicator"></section>
-                    <section class="clock__indicator"></section>
-                    <section class="clock__indicator"></section>
-                    <section class="clock__indicator"></section>
-                    <section class="clock__indicator"></section>
-                    <section class="clock__indicator"></section>
-                    <section class="clock__indicator"></section>
-                    <section class="clock__indicator"></section>
-                    <section class="clock__indicator"></section>
-                    <section class="clock__indicator"></section>
-                    <section class="clock__indicator"></section>
-                    <section class="clock__indicator"></section>
-                    <section class="clock__indicator"></section>
-                    <section class="clock__indicator"></section>
-                    <section class="clock__indicator"></section>
-                    <section class="clock__indicator"></section>
-                    <section class="clock__indicator"></section>
-                    <section class="clock__indicator"></section>
-                    <section class="clock__indicator"></section>
-                    <section class="clock__indicator"></section>
-                    <section class="clock__indicator"></section>
-                    <section class="clock__indicator"></section>
-                    <section class="clock__indicator"></section>
-                    <section class="clock__indicator"></section>
-                    <section class="clock__indicator"></section>
-                    <section class="clock__indicator"></section>
-                    <section class="clock__indicator"></section>
-                    <section class="clock__indicator"></section>
-                    <section class="clock__indicator"></section>
-                    <section class="clock__indicator"></section>
-                    <section class="clock__indicator"></section>
-                    <section class="clock__indicator"></section>
-                    <section class="clock__indicator"></section>
-                    <section class="clock__indicator"></section>
-                    <section class="clock__indicator"></section>
-                    <section class="clock__indicator"></section>
-                    <section class="clock__indicator"></section>
-                    <section class="clock__indicator"></section>
-                    <section class="clock__indicator"></section>
-                    <section class="clock__indicator"></section>
-                    <section class="clock__indicator"></section>
-                    <section class="clock__indicator"></section>
-                    <section class="clock__indicator"></section>
+                  <section class="clock__indicator"></section>
+                  <section class="clock__indicator"></section>
+                  <section class="clock__indicator"></section>
+                  <section class="clock__indicator"></section>
+                  <section class="clock__indicator"></section>
+                  <section class="clock__indicator"></section>
+                  <section class="clock__indicator"></section>
+                  <section class="clock__indicator"></section>
+                  <section class="clock__indicator"></section>
+                  <section class="clock__indicator"></section>
+                  <section class="clock__indicator"></section>
+                  <section class="clock__indicator"></section>
+                  <section class="clock__indicator"></section>
+                  <section class="clock__indicator"></section>
+                  <section class="clock__indicator"></section>
+                  <section class="clock__indicator"></section>
+                  <section class="clock__indicator"></section>
+                  <section class="clock__indicator"></section>
+                  <section class="clock__indicator"></section>
+                  <section class="clock__indicator"></section>
+                  <section class="clock__indicator"></section>
+                  <section class="clock__indicator"></section>
+                  <section class="clock__indicator"></section>
+                  <section class="clock__indicator"></section>
+                  <section class="clock__indicator"></section>
+                  <section class="clock__indicator"></section>
+                  <section class="clock__indicator"></section>
+                  <section class="clock__indicator"></section>
+                  <section class="clock__indicator"></section>
+                  <section class="clock__indicator"></section>
+                  <section class="clock__indicator"></section>
+                  <section class="clock__indicator"></section>
+                  <section class="clock__indicator"></section>
+                  <section class="clock__indicator"></section>
+                  <section class="clock__indicator"></section>
+                  <section class="clock__indicator"></section>
+                  <section class="clock__indicator"></section>
+                  <section class="clock__indicator"></section>
+                  <section class="clock__indicator"></section>
+                  <section class="clock__indicator"></section>
+                  <section class="clock__indicator"></section>
+                  <section class="clock__indicator"></section>
+                  <section class="clock__indicator"></section>
+                  <section class="clock__indicator"></section>
+                  <section class="clock__indicator"></section>
+                  <section class="clock__indicator"></section>
+                  <section class="clock__indicator"></section>
+                  <section class="clock__indicator"></section>
+                  <section class="clock__indicator"></section>
+                  <section class="clock__indicator"></section>
+                  <section class="clock__indicator"></section>
+                  <section class="clock__indicator"></section>
+                  <section class="clock__indicator"></section>
+                  <section class="clock__indicator"></section>
+                  <section class="clock__indicator"></section>
+                  <section class="clock__indicator"></section>
+                  <section class="clock__indicator"></section>
+                  <section class="clock__indicator"></section>
+                  <section class="clock__indicator"></section>
+                  <section class="clock__indicator"></section>
                 </div>
               </div>
-
-              
-
 
               <h1 class="btn-okey">
                 <div id="reloj">00 : 00 : 00</div>
               </h1>
 
-              <button class="btn btn-primary radius-all forex-tz-btn" type="button"  data-bs-toggle="offcanvas"
-              href="#offcanvasForex"
-              role="button"
-              aria-controls="offcanvasForex" id="ss">
-                  
-                  <div class="loading-clock"></div>
-                  <span id="forex-tz-txt"></span>
+              <button
+                class="btn btn-primary radius-all forex-tz-btn"
+                type="button"
+                data-bs-toggle="offcanvas"
+                href="#offcanvasForex"
+                role="button"
+                aria-controls="offcanvasForex"
+                id="ss"
+              >
+                <div class="loading-clock"></div>
+                <span id="forex-tz-txt"></span>
               </button>
             </div>
             <div
@@ -713,424 +708,428 @@
             </div>
           </div>
         </div>
-
+        <!-- Tabs Contents Convert -->
         <div id="convert-tab-content">
           <div class="card text-center">
             <div class="card-body">
-
-
-
-
-
-
-
-
               <div class="accordion" id="accordionExample">
                 <div class="accordion-item">
                   <h2 class="accordion-header" id="headingOne">
-                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    <button
+                      class="accordion-button"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#collapseOne"
+                      aria-expanded="true"
+                      aria-controls="collapseOne"
+                    >
                       <svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512">
-                          <path
-                              d="M416.07 272a160 160 0 10-160 160 160 160 0 00160-160zM142.12 91.21A46.67 46.67 0 00112 80l-2.79.08C83.66 81.62 64 104 64.07 131c0 13.21 4.66 19.37 10.88 27.23a4.55 4.55 0 003.24 1.77h.88a3.23 3.23 0 002.54-1.31L142.38 99a5.38 5.38 0 001.55-4 5.26 5.26 0 00-1.81-3.79zM369.88 91.21A46.67 46.67 0 01400 80l2.79.08C428.34 81.62 448 104 447.93 131c0 13.21-4.66 19.37-10.88 27.23a4.55 4.55 0 01-3.24 1.76h-.88a3.23 3.23 0 01-2.54-1.31L369.62 99a5.38 5.38 0 01-1.55-4 5.26 5.26 0 011.81-3.79z"
-                              fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="32" />
-                          <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                              stroke-width="32" d="M256.07 160v112h-80M416.07 432l-40-40M96.07 432l40-40" />
+                        <path
+                          d="M416.07 272a160 160 0 10-160 160 160 160 0 00160-160zM142.12 91.21A46.67 46.67 0 00112 80l-2.79.08C83.66 81.62 64 104 64.07 131c0 13.21 4.66 19.37 10.88 27.23a4.55 4.55 0 003.24 1.77h.88a3.23 3.23 0 002.54-1.31L142.38 99a5.38 5.38 0 001.55-4 5.26 5.26 0 00-1.81-3.79zM369.88 91.21A46.67 46.67 0 01400 80l2.79.08C428.34 81.62 448 104 447.93 131c0 13.21-4.66 19.37-10.88 27.23a4.55 4.55 0 01-3.24 1.76h-.88a3.23 3.23 0 01-2.54-1.31L369.62 99a5.38 5.38 0 01-1.55-4 5.26 5.26 0 011.81-3.79z"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-miterlimit="10"
+                          stroke-width="32"
+                        />
+                        <path
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="32"
+                          d="M256.07 160v112h-80M416.07 432l-40-40M96.07 432l40-40"
+                        />
                       </svg>
+                      <span id="convert-time-title"></span>
                     </button>
                   </h2>
-                  <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                  <div
+                    id="collapseOne"
+                    class="accordion-collapse collapse show"
+                    aria-labelledby="headingOne"
+                    data-bs-parent="#accordionExample"
+                  >
                     <div class="accordion-body">
-
-
-
-
-
-
                       <div class="input-group-title">
-                <h6 id="convert-hour-txt"></h6>
-                <h6 id="convert-minute-txt"></h6>
-                <h6 id="convert-second-txt"></h6>
-              </div>
-              <div class="input-group hide" id="time-inputs">
-                <select class="form-select radius-right" id="hour-conv-input" aria-label="Default select example">
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="4">4</option>
-                  <option value="5">5</option>
-                  <option value="6">6</option>
-                  <option value="7">7</option>
-                  <option value="8">8</option>
-                  <option value="9">9</option>
-                  <option value="10">10</option>
-                  <option value="11">11</option>
-                  <option value="12">12</option>
-                  <option value="13">13</option>
-                  <option value="14">14</option>
-                  <option value="15">15</option>
-                  <option value="16">16</option>
-                  <option value="17">17</option>
-                  <option value="18">18</option>
-                  <option value="19">19</option>
-                  <option value="20">20</option>
-                  <option value="21">21</option>
-                  <option value="22">22</option>
-                  <option value="23">23</option>
-                  <option value="24">24</option>
-                </select>
-                <select class="form-select" id="minute-conv-input" aria-label="Default select example">
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="4">4</option>
-                  <option value="5">5</option>
-                  <option value="6">6</option>
-                  <option value="7">7</option>
-                  <option value="8">8</option>
-                  <option value="9">9</option>
-                  <option value="10">10</option>
-                  <option value="11">11</option>
-                  <option value="12">12</option>
-                  <option value="13">13</option>
-                  <option value="14">14</option>
-                  <option value="15">15</option>
-                  <option value="16">16</option>
-                  <option value="17">17</option>
-                  <option value="18">18</option>
-                  <option value="19">19</option>
-                  <option value="20">20</option>
-                  <option value="21">21</option>
-                  <option value="22">22</option>
-                  <option value="23">23</option>
-                  <option value="24">24</option>
-                  <option value="25">25</option>
-                  <option value="26">26</option>
-                  <option value="27">27</option>
-                  <option value="28">28</option>
-                  <option value="29">29</option>
-                  <option value="30">30</option>
-                  <option value="31">31</option>
-                  <option value="32">32</option>
-                  <option value="33">33</option>
-                  <option value="34">34</option>
-                  <option value="35">35</option>
-                  <option value="36">36</option>
-                  <option value="37">37</option>
-                  <option value="38">38</option>
-                  <option value="39">39</option>
-                  <option value="40">40</option>
-                  <option value="41">41</option>
-                  <option value="42">42</option>
-                  <option value="43">43</option>
-                  <option value="44">44</option>
-                  <option value="45">45</option>
-                  <option value="46">46</option>
-                  <option value="47">47</option>
-                  <option value="48">48</option>
-                  <option value="49">49</option>
-                  <option value="50">50</option>
-                  <option value="51">51</option>
-                  <option value="52">52</option>
-                  <option value="53">53</option>
-                  <option value="54">54</option>
-                  <option value="55">55</option>
-                  <option value="56">56</option>
-                  <option value="57">57</option>
-                  <option value="58">58</option>
-                  <option value="59">59</option>
-                  <option value="60">60</option>
-                </select>
-                <select class="form-select" id="second-conv-input" aria-label="Default select example">
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="4">4</option>
-                  <option value="5">5</option>
-                  <option value="6">6</option>
-                  <option value="7">7</option>
-                  <option value="8">8</option>
-                  <option value="9">9</option>
-                  <option value="10">10</option>
-                  <option value="11">11</option>
-                  <option value="12">12</option>
-                  <option value="13">13</option>
-                  <option value="14">14</option>
-                  <option value="15">15</option>
-                  <option value="16">16</option>
-                  <option value="17">17</option>
-                  <option value="18">18</option>
-                  <option value="19">19</option>
-                  <option value="20">20</option>
-                  <option value="21">21</option>
-                  <option value="22">22</option>
-                  <option value="23">23</option>
-                  <option value="24">24</option>
-                  <option value="25">25</option>
-                  <option value="26">26</option>
-                  <option value="27">27</option>
-                  <option value="28">28</option>
-                  <option value="29">29</option>
-                  <option value="30">30</option>
-                  <option value="31">31</option>
-                  <option value="32">32</option>
-                  <option value="33">33</option>
-                  <option value="34">34</option>
-                  <option value="35">35</option>
-                  <option value="36">36</option>
-                  <option value="37">37</option>
-                  <option value="38">38</option>
-                  <option value="39">39</option>
-                  <option value="40">40</option>
-                  <option value="41">41</option>
-                  <option value="42">42</option>
-                  <option value="43">43</option>
-                  <option value="44">44</option>
-                  <option value="45">45</option>
-                  <option value="46">46</option>
-                  <option value="47">47</option>
-                  <option value="48">48</option>
-                  <option value="49">49</option>
-                  <option value="50">50</option>
-                  <option value="51">51</option>
-                  <option value="52">52</option>
-                  <option value="53">53</option>
-                  <option value="54">54</option>
-                  <option value="55">55</option>
-                  <option value="56">56</option>
-                  <option value="57">57</option>
-                  <option value="58">58</option>
-                  <option value="59">59</option>
-                  <option value="60">60</option>
-                </select>
-              </div>
-              <div class="input-group" id="current-time-inputs">
-                <input type="number" class="form-control radius-right" id="curr-hour-conv-input" disabled />
-                <input type="number" class="form-control radius-center" id="curr-minute-conv-input" disabled />
-                <input type="number" class="form-control radius-left" id="curr-second-conv-input" disabled />
-              </div>
+                        <h6 id="convert-hour-txt"></h6>
+                        <h6 id="convert-minute-txt"></h6>
+                        <h6 id="convert-second-txt"></h6>
+                      </div>
+                      <div class="input-group hide" id="time-inputs">
+                        <select
+                          class="form-select radius-right"
+                          id="hour-conv-input"
+                          aria-label="Default select example"
+                        >
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option>
+                          <option value="6">6</option>
+                          <option value="7">7</option>
+                          <option value="8">8</option>
+                          <option value="9">9</option>
+                          <option value="10">10</option>
+                          <option value="11">11</option>
+                          <option value="12">12</option>
+                          <option value="13">13</option>
+                          <option value="14">14</option>
+                          <option value="15">15</option>
+                          <option value="16">16</option>
+                          <option value="17">17</option>
+                          <option value="18">18</option>
+                          <option value="19">19</option>
+                          <option value="20">20</option>
+                          <option value="21">21</option>
+                          <option value="22">22</option>
+                          <option value="23">23</option>
+                          <option value="24">24</option>
+                        </select>
+                        <select class="form-select" id="minute-conv-input" aria-label="Default select example">
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option>
+                          <option value="6">6</option>
+                          <option value="7">7</option>
+                          <option value="8">8</option>
+                          <option value="9">9</option>
+                          <option value="10">10</option>
+                          <option value="11">11</option>
+                          <option value="12">12</option>
+                          <option value="13">13</option>
+                          <option value="14">14</option>
+                          <option value="15">15</option>
+                          <option value="16">16</option>
+                          <option value="17">17</option>
+                          <option value="18">18</option>
+                          <option value="19">19</option>
+                          <option value="20">20</option>
+                          <option value="21">21</option>
+                          <option value="22">22</option>
+                          <option value="23">23</option>
+                          <option value="24">24</option>
+                          <option value="25">25</option>
+                          <option value="26">26</option>
+                          <option value="27">27</option>
+                          <option value="28">28</option>
+                          <option value="29">29</option>
+                          <option value="30">30</option>
+                          <option value="31">31</option>
+                          <option value="32">32</option>
+                          <option value="33">33</option>
+                          <option value="34">34</option>
+                          <option value="35">35</option>
+                          <option value="36">36</option>
+                          <option value="37">37</option>
+                          <option value="38">38</option>
+                          <option value="39">39</option>
+                          <option value="40">40</option>
+                          <option value="41">41</option>
+                          <option value="42">42</option>
+                          <option value="43">43</option>
+                          <option value="44">44</option>
+                          <option value="45">45</option>
+                          <option value="46">46</option>
+                          <option value="47">47</option>
+                          <option value="48">48</option>
+                          <option value="49">49</option>
+                          <option value="50">50</option>
+                          <option value="51">51</option>
+                          <option value="52">52</option>
+                          <option value="53">53</option>
+                          <option value="54">54</option>
+                          <option value="55">55</option>
+                          <option value="56">56</option>
+                          <option value="57">57</option>
+                          <option value="58">58</option>
+                          <option value="59">59</option>
+                          <option value="60">60</option>
+                        </select>
+                        <select class="form-select" id="second-conv-input" aria-label="Default select example">
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option>
+                          <option value="6">6</option>
+                          <option value="7">7</option>
+                          <option value="8">8</option>
+                          <option value="9">9</option>
+                          <option value="10">10</option>
+                          <option value="11">11</option>
+                          <option value="12">12</option>
+                          <option value="13">13</option>
+                          <option value="14">14</option>
+                          <option value="15">15</option>
+                          <option value="16">16</option>
+                          <option value="17">17</option>
+                          <option value="18">18</option>
+                          <option value="19">19</option>
+                          <option value="20">20</option>
+                          <option value="21">21</option>
+                          <option value="22">22</option>
+                          <option value="23">23</option>
+                          <option value="24">24</option>
+                          <option value="25">25</option>
+                          <option value="26">26</option>
+                          <option value="27">27</option>
+                          <option value="28">28</option>
+                          <option value="29">29</option>
+                          <option value="30">30</option>
+                          <option value="31">31</option>
+                          <option value="32">32</option>
+                          <option value="33">33</option>
+                          <option value="34">34</option>
+                          <option value="35">35</option>
+                          <option value="36">36</option>
+                          <option value="37">37</option>
+                          <option value="38">38</option>
+                          <option value="39">39</option>
+                          <option value="40">40</option>
+                          <option value="41">41</option>
+                          <option value="42">42</option>
+                          <option value="43">43</option>
+                          <option value="44">44</option>
+                          <option value="45">45</option>
+                          <option value="46">46</option>
+                          <option value="47">47</option>
+                          <option value="48">48</option>
+                          <option value="49">49</option>
+                          <option value="50">50</option>
+                          <option value="51">51</option>
+                          <option value="52">52</option>
+                          <option value="53">53</option>
+                          <option value="54">54</option>
+                          <option value="55">55</option>
+                          <option value="56">56</option>
+                          <option value="57">57</option>
+                          <option value="58">58</option>
+                          <option value="59">59</option>
+                          <option value="60">60</option>
+                        </select>
+                      </div>
+                      <div class="input-group" id="current-time-inputs">
+                        <input type="number" class="form-control radius-right" id="curr-hour-conv-input" disabled />
+                        <input type="number" class="form-control radius-center" id="curr-minute-conv-input" disabled />
+                        <input type="number" class="form-control radius-left" id="curr-second-conv-input" disabled />
+                      </div>
 
+                      <div class="wrapper">
+                        <div class="select-btn">
+                          <span id="convert-select-city">انتخاب شهر</span>
+                          <i class="uil uil-angle-down"></i>
+                        </div>
+                        <div class="content">
+                          <div class="search">
+                            <i class="uil uil-search"></i>
+                            <input
+                              id="time-convert-select-city-search"
+                              spellcheck="false"
+                              type="text"
+                              placeholder="Search"
+                            />
+                          </div>
+                          <ul class="options"></ul>
+                        </div>
+                      </div>
 
+                      <div class="d-flex gap-2 mt-3 mb-3">
+                        <button class="btn btn-primary radius-all" type="button" id="convert-time-btn"></button>
+                      </div>
 
-              
-              <div class="wrapper">
-                <div class="select-btn">
-                  <span id="convert-select-city">انتخاب شهر</span>
-                  <i class="uil uil-angle-down"></i>
-                </div>
-                <div class="content">
-                  <div class="search">
-                    <i class="uil uil-search"></i>
-                    <input id="time-convert-select-city-search" spellcheck="false" type="text" placeholder="Search">
-                  </div>
-                  <ul class="options"></ul>
-                </div>
-              </div>
+                      <input type="text" class="form-control" id="converted-time" placeholder="" disabled />
 
-
-
-
-              <div class="d-flex gap-2 mt-3 mb-3">
-                <button class="btn btn-primary radius-all" type="button" id="convert-time-btn"></button>
-                <!-- <button class="btn btn-primary radius-all" type="button" id="convert-exchange">
-                  <div class="exchange-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512">
-                      <path
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="32"
-                        d="M464 208L352 96 240 208M352 113.13V416M48 304l112 112 112-112M160 398V96"
-                      />
-                    </svg>
-                  </div>
-                </button> -->
-              </div>
-              
-
-
-              <input type="text" class="form-control" id="converted-time" placeholder="" disabled />
-
-              <div class="form-check form-switch">
-                <input class="form-check-input" type="checkbox" role="switch" id="manual-time-input">
-                <label class="form-check-label" for="manual-time-input" id="convert-manual-time">انتخاب دستی</label>
-              </div>
-
-
-
-
-
-
-
+                      <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" role="switch" id="manual-time-input" />
+                        <label class="form-check-label" for="manual-time-input" id="convert-manual-time"
+                          >انتخاب دستی</label
+                        >
+                      </div>
                     </div>
                   </div>
                 </div>
                 <div class="accordion-item">
                   <h2 class="accordion-header" id="headingTwo">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    <button
+                      class="accordion-button collapsed"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#collapseTwo"
+                      aria-expanded="false"
+                      aria-controls="collapseTwo"
+                    >
                       <svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512">
-                          <rect fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="32" x="48" y="80"
-                              width="416" height="384" rx="48" />
-                          <path fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="32"
-                              stroke-linecap="round" d="M128 48v32M384 48v32M464 160H48" />
+                        <rect
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-linejoin="round"
+                          stroke-width="32"
+                          x="48"
+                          y="80"
+                          width="416"
+                          height="384"
+                          rx="48"
+                        />
+                        <path
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-linejoin="round"
+                          stroke-width="32"
+                          stroke-linecap="round"
+                          d="M128 48v32M384 48v32M464 160H48"
+                        />
                       </svg>
+                      <span id="convert-date-title"></span>
                     </button>
                   </h2>
-                  <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                  <div
+                    id="collapseTwo"
+                    class="accordion-collapse collapse"
+                    aria-labelledby="headingTwo"
+                    data-bs-parent="#accordionExample"
+                  >
                     <div class="accordion-body">
-
-
-
-
-
-
                       <div class="input-group-title">
-                <h6 id="convert-day-txt">روز</h6>
-                <h6 id="convert-month-txt">ماه</h6>
-                <h6 id="convert-year-txt">سال</h6>
-              </div>
-              <div class="input-group" id="shamsi-inputs">
-                <select class="form-select radius-right" id="tomiladi-day" aria-label="Default select example">
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="4">4</option>
-                  <option value="5">5</option>
-                  <option value="6">6</option>
-                  <option value="7">7</option>
-                  <option value="8">8</option>
-                  <option value="9">9</option>
-                  <option value="10">10</option>
-                  <option value="11">11</option>
-                  <option value="12">12</option>
-                  <option value="13">13</option>
-                  <option value="14">14</option>
-                  <option value="15">15</option>
-                  <option value="16">16</option>
-                  <option value="17">17</option>
-                  <option value="18">18</option>
-                  <option value="19">19</option>
-                  <option value="20">20</option>
-                  <option value="21">21</option>
-                  <option value="22">22</option>
-                  <option value="23">23</option>
-                  <option value="24">24</option>
-                  <option value="25">25</option>
-                  <option value="26">26</option>
-                  <option value="27">27</option>
-                  <option value="28">28</option>
-                  <option value="29">29</option>
-                  <option value="30">30</option>
-                </select>
-                <select class="form-select month-select" id="tomiladi-month" aria-label="Default select example">
-                  <option value="1">۱ - فروردین</option>
-                  <option value="2">۲ - اردیبهشت</option>
-                  <option value="3">۳ - خرداد</option>
-                  <option value="4">۴ - تیر</option>
-                  <option value="5">۵ - مرداد</option>
-                  <option value="6">۶ - شهریور</option>
-                  <option value="7">۷ - مهر</option>
-                  <option value="8">۸ - آبان</option>
-                  <option value="9">۹ - آذر</option>
-                  <option value="10">۱۰ - دی</option>
-                  <option value="11">۱۱ - بهمن</option>
-                  <option value="12">۱۲ - اسفند</option>
-                </select>
-                <input type="number" class="form-control radius-left" id="tomiladi-year" />
-              </div>
+                        <h6 id="convert-day-txt">روز</h6>
+                        <h6 id="convert-month-txt">ماه</h6>
+                        <h6 id="convert-year-txt">سال</h6>
+                      </div>
+                      <div class="input-group" id="shamsi-inputs">
+                        <select class="form-select radius-right" id="tomiladi-day" aria-label="Default select example">
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option>
+                          <option value="6">6</option>
+                          <option value="7">7</option>
+                          <option value="8">8</option>
+                          <option value="9">9</option>
+                          <option value="10">10</option>
+                          <option value="11">11</option>
+                          <option value="12">12</option>
+                          <option value="13">13</option>
+                          <option value="14">14</option>
+                          <option value="15">15</option>
+                          <option value="16">16</option>
+                          <option value="17">17</option>
+                          <option value="18">18</option>
+                          <option value="19">19</option>
+                          <option value="20">20</option>
+                          <option value="21">21</option>
+                          <option value="22">22</option>
+                          <option value="23">23</option>
+                          <option value="24">24</option>
+                          <option value="25">25</option>
+                          <option value="26">26</option>
+                          <option value="27">27</option>
+                          <option value="28">28</option>
+                          <option value="29">29</option>
+                          <option value="30">30</option>
+                        </select>
+                        <select
+                          class="form-select month-select"
+                          id="tomiladi-month"
+                          aria-label="Default select example"
+                        >
+                          <option value="1">۱ - فروردین</option>
+                          <option value="2">۲ - اردیبهشت</option>
+                          <option value="3">۳ - خرداد</option>
+                          <option value="4">۴ - تیر</option>
+                          <option value="5">۵ - مرداد</option>
+                          <option value="6">۶ - شهریور</option>
+                          <option value="7">۷ - مهر</option>
+                          <option value="8">۸ - آبان</option>
+                          <option value="9">۹ - آذر</option>
+                          <option value="10">۱۰ - دی</option>
+                          <option value="11">۱۱ - بهمن</option>
+                          <option value="12">۱۲ - اسفند</option>
+                        </select>
+                        <input type="number" class="form-control radius-left" id="tomiladi-year" />
+                      </div>
 
-              <div class="input-group hide" id="miladi-inputs">
-                <select class="form-select radius-right" id="toshamsi-day" aria-label="Default select example">
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="4">4</option>
-                  <option value="5">5</option>
-                  <option value="6">6</option>
-                  <option value="7">7</option>
-                  <option value="8">8</option>
-                  <option value="9">9</option>
-                  <option value="10">10</option>
-                  <option value="11">11</option>
-                  <option value="12">12</option>
-                  <option value="13">13</option>
-                  <option value="14">14</option>
-                  <option value="15">15</option>
-                  <option value="16">16</option>
-                  <option value="17">17</option>
-                  <option value="18">18</option>
-                  <option value="19">19</option>
-                  <option value="20">20</option>
-                  <option value="21">21</option>
-                  <option value="22">22</option>
-                  <option value="23">23</option>
-                  <option value="24">24</option>
-                  <option value="25">25</option>
-                  <option value="26">26</option>
-                  <option value="27">27</option>
-                  <option value="28">28</option>
-                  <option value="29">29</option>
-                  <option value="30">30</option>
-                </select>
-                <select class="form-select month-select" id="toshamsi-month" aria-label="Default select example">
-                  <option value="1">1- January</option>
-                  <option value="2">2- February</option>
-                  <option value="3">3- March</option>
-                  <option value="4">4- April</option>
-                  <option value="5">5- May</option>
-                  <option value="6">6- June</option>
-                  <option value="7">7- July</option>
-                  <option value="8">8- August</option>
-                  <option value="9">9- September</option>
-                  <option value="10">10- October</option>
-                  <option value="11">11- November</option>
-                  <option value="12">12- December</option>
-                </select>
-                <input type="number" class="form-control radius-left" id="toshamsi-year" />
-              </div>
+                      <div class="input-group hide" id="miladi-inputs">
+                        <select class="form-select radius-right" id="toshamsi-day" aria-label="Default select example">
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option>
+                          <option value="6">6</option>
+                          <option value="7">7</option>
+                          <option value="8">8</option>
+                          <option value="9">9</option>
+                          <option value="10">10</option>
+                          <option value="11">11</option>
+                          <option value="12">12</option>
+                          <option value="13">13</option>
+                          <option value="14">14</option>
+                          <option value="15">15</option>
+                          <option value="16">16</option>
+                          <option value="17">17</option>
+                          <option value="18">18</option>
+                          <option value="19">19</option>
+                          <option value="20">20</option>
+                          <option value="21">21</option>
+                          <option value="22">22</option>
+                          <option value="23">23</option>
+                          <option value="24">24</option>
+                          <option value="25">25</option>
+                          <option value="26">26</option>
+                          <option value="27">27</option>
+                          <option value="28">28</option>
+                          <option value="29">29</option>
+                          <option value="30">30</option>
+                        </select>
+                        <select
+                          class="form-select month-select"
+                          id="toshamsi-month"
+                          aria-label="Default select example"
+                        >
+                          <option value="1">1- January</option>
+                          <option value="2">2- February</option>
+                          <option value="3">3- March</option>
+                          <option value="4">4- April</option>
+                          <option value="5">5- May</option>
+                          <option value="6">6- June</option>
+                          <option value="7">7- July</option>
+                          <option value="8">8- August</option>
+                          <option value="9">9- September</option>
+                          <option value="10">10- October</option>
+                          <option value="11">11- November</option>
+                          <option value="12">12- December</option>
+                        </select>
+                        <input type="number" class="form-control radius-left" id="toshamsi-year" />
+                      </div>
 
-              <div class="d-flex gap-2 mt-3 mb-3">
-                <button class="btn btn-primary radius-all hide" type="button" id="converttoshamsi"></button>
-                <button class="btn btn-primary radius-all" type="button" id="converttomiladi"></button>
-                <button class="btn btn-primary radius-all" type="button" id="convert-exchange">
-                  <div class="exchange-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512">
-                      <path
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="32"
-                        d="M464 208L352 96 240 208M352 113.13V416M48 304l112 112 112-112M160 398V96"
-                      />
-                    </svg>
-                  </div>
-                </button>
-              </div>
-              <input type="text" class="form-control" id="converted-date" placeholder="" disabled />
-
-
-
-
-
+                      <div class="d-flex gap-2 mt-3 mb-3">
+                        <button class="btn btn-primary radius-all hide" type="button" id="converttoshamsi"></button>
+                        <button class="btn btn-primary radius-all" type="button" id="converttomiladi"></button>
+                        <button class="btn btn-primary radius-all" type="button" id="convert-exchange">
+                          <div class="exchange-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512">
+                              <path
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="32"
+                                d="M464 208L352 96 240 208M352 113.13V416M48 304l112 112 112-112M160 398V96"
+                              />
+                            </svg>
+                          </div>
+                        </button>
+                      </div>
+                      <input type="text" class="form-control" id="converted-date" placeholder="" disabled />
                     </div>
                   </div>
                 </div>
               </div>
 
-
-
-              
-
-
-
-
               <!-- <div class="hor-line"></div> -->
-
-
-              
-
-
             </div>
             <div
               class="card-footer"
@@ -1144,20 +1143,19 @@
             </div>
           </div>
         </div>
-
+        <!-- Tabs Contents Setting -->
         <div id="setting-tab-content">
           <div class="card text-center">
             <div class="card-body">
               <div class="clock-switch-container">
                 <div class="form-check clock-switch-main">
-                  <img src="assets/img/clock1.png">
-                  <input class="form-check-input" type="radio" name="clockSwitch" id="default" checked>
+                  <img src="assets/img/clock1.png" />
+                  <input class="form-check-input" type="radio" name="clockSwitch" id="default" checked />
                 </div>
                 <div class="form-check clock-switch-main">
-                  <img src="assets/img/clock2.png">
-                  <input class="form-check-input" type="radio" name="clockSwitch" id="circle-dots">
+                  <img src="assets/img/clock2.png" />
+                  <input class="form-check-input" type="radio" name="clockSwitch" id="circle-dots" />
                 </div>
-                
               </div>
 
               <div class="theme-pr-main">
@@ -1394,13 +1392,11 @@
             </div>
           </div>
         </div>
-        <!--.login-tab-content-->
+
       </div>
-      <!--.tabs-content-->
+      <!-- .Tabs Contents -->
     </div>
-    <!--.form-wrap-->
 
     <script src="assets/js/bootstrap.bundle.min.js"></script>
-    
   </body>
 </html>
